@@ -57,15 +57,22 @@ Changelog = "https://github.com/ocrmypdf/OCRmyPDF/tree/main/docs/releasenotes"
 heic = ["pillow-heif>=1.7.0"]  # HEIF/HEIC image support - wheels bundle GPLv2 x265, opt-in only
 watcher = ["watchfiles>=1.0", "cyclopts>=3", "python-dotenv"]
 webservice = ["streamlit>=1.41.0"]
+gui = ["PySide6>=6.6"]
 
 [project.scripts]
 ocrmypdf = "ocrmypdf.__main__:run"
+
+[project.gui-scripts]
+ocrmypdf-gui = "ocrmypdf_gui.__main__:main"
 
 [project.entry-points.pyinstaller40]
 hook-dirs = "ocrmypdf._pyinstaller:get_hook_dirs"
 
 [tool.distutils.bdist_wheel]
 python-tag = "py311"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ocrmypdf", "src/ocrmypdf_gui"]
 
 [tool.coverage.run]
 branch = true
@@ -154,7 +161,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["ocrmypdf"]
+known-first-party = ["ocrmypdf", "ocrmypdf_gui"]
 required-imports = ["from __future__ import annotations"]
 
 [tool.ruff.lint.flake8-import-conventions]
