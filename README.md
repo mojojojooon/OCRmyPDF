@@ -151,6 +151,10 @@ For more features, see the [documentation](https://ocrmypdf.readthedocs.io/en/la
 
 In addition to the required Python version, OCRmyPDF requires external program installations of Ghostscript and Tesseract OCR. OCRmyPDF is pure Python, and runs on pretty much everything: Linux, macOS, Windows and FreeBSD.
 
+## Desktop app
+
+If you would rather not use the command line, `ocrmypdf-gui` opens a window: drop a scanned PDF on it and a searchable copy is saved next to the original as `<name>_searchable.pdf`. Install with `pip install ocrmypdf[gui]` (or `pip install -e ".[gui]"` from a checkout) after Tesseract and Ghostscript are installed. Windows steps, including a standalone PyInstaller build, are in [desktop_app/README.md](desktop_app/README.md).
+
 ## Plugins
 
 OCRmyPDF provides a plugin interface allowing its capabilities to be extended or replaced. Here are some plugins we are aware of:
